@@ -3,9 +3,7 @@
     <!-- 顶部导航栏 -->
      <div class="tabs contaniar">
            <li class="plat">
-               <router-link to="/platform">
                  <span>宜居云电商平台</span>
-               </router-link>
           </li>
           <li class="tab">
                <router-link to="/home">
@@ -142,16 +140,16 @@
           </li>
             <li class="tab login">
                <router-link to="/login">
-                 <span>安全退出</span>
+                 <span class="last">安全退出</span>
                </router-link>
           </li>
      </div>
      <!-- 左侧导航栏 -->
      <div class="leftNav">
-              <li v-for="(item,index) in navList2"
+             <li v-for="(item,index) in navList2"
                :key="item.tabId"
                :class="{active:index == selectIndex}"
-               >{{item.tabName}}</li>
+               >{{item.tabName}}</li> 
      </div>
  </div>    
 </template>
@@ -245,13 +243,12 @@ export default {
              selectIndex:1
             }
      },
-        computed:{
+     computed:{
      
-         
     },
     methods: {
       selectMenuItem(index){
-         alert('点击成功')
+          alert("点击成功，实现跳转")
       },
       selecNavTabAction(index) {
         this.selectIndex = index;
@@ -271,7 +268,20 @@ export default {
        box-sizing: border-box;
        position: absolute;
        top: 54px;
+       li {
+             width: 100%;
+             min-height: 48px;
+             line-height: 48px; 
+             border-bottom: 1px solid #dddddd;
+             cursor: pointer;
+        }
   }
+.leftNav li:first-child{
+   border-top: 1px solid #dddddd;
+}
+.leftNav li:hover{
+  background: #e2e2e2;
+}
 .tabs{
   position: relative;
   top: 0;
@@ -339,6 +349,16 @@ export default {
 }
 .drop li:last-child{
   border-bottom: 0;
+}
+.tabs .tab a .last::before{
+  position: absolute;
+	content: '';
+  display: inline-block;
+  width: 1px;
+  height: 15px;
+  top: 21px;
+  margin-left: -10px;
+  background:  #999999;
 }
 .tab:hover .drop{
   display: block;
