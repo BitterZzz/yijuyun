@@ -1,0 +1,25 @@
+   .contaniar{
+      width: 1420px;
+      margin: 0 auto;
+      background: blueviolet;
+   }
+   .page{
+      position: absolute;
+      margin-top: 54px;
+      min-width: 1420px;
+      height: 100%;
+      border: 1px solid gray;
+      box-sizing: border-box;
+      padding-left: 330px;
+    }
+    /* .lie{
+      width: 130px;
+      height: 205px;
+      border: 1px solid #efefef;
+      box-shadow: 2px 2px 3px #ddd;
+      position: absolute;
+      top: 0;
+      left: 402px;
+      
+    } */
+    
