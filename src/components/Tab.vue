@@ -10,23 +10,23 @@
          
               <span class="el-dropdown-link">首页</span>
                 <ul class="drop" style="margin-left: -18px;">
-                        <li v-for="(item,index) in navList1"
+                        <li v-for="item in navList1"
                                     :key="item.tabId"
-                                    @click="selectMenuItem(index)"
-                                    >{{item.tabName}} </li>
+                                    >{{item.tabName}}</li>
                       </ul>
                </router-link>
           </li>
             <li class="tab">
-               <router-link to="/shop">
-                      <span class="el-dropdown-link">商品</span>
+                      <router-link to="/shop">
+                          <span class="el-dropdown-link" >商品</span>
+                      </router-link>
                       <ul class="drop" style="margin-left: -18px;">
-                        <li v-for="(item,index) in navList2"
-                                    :key="item.tabId"
-                                    @click="selectMenuItem(index)"
-                                    >{{item.tabName}} </li>
+                            <li v-for="item in navList2"
+                                        :key="item.tabId">
+                                 <router-link :to="item.path">{{item.tabName}}</router-link>
+                            </li>
                       </ul>
-               </router-link>
+              
           </li>
             <li class="tab">
                <router-link to="/deal">
@@ -144,13 +144,14 @@
                </router-link>
           </li>
      </div>
+     
      <!-- 左侧导航栏 -->
-     <div class="leftNav">
+     <!-- <div class="leftNav">
              <li v-for="(item,index) in navList2"
                :key="item.tabId"
                :class="{active:index == selectIndex}"
                >{{item.tabName}}</li> 
-     </div>
+     </div> -->
  </div>    
 </template>
 
@@ -163,11 +164,11 @@ export default {
                { tabId: 1, tabName: "控制台" },
              ],
              navList2:[
-               { tabId: 1, tabName: "商品管理" },
-               { tabId: 2, tabName: "分类管理" },
-               { tabId: 3, tabName: "品牌管理" },
-               { tabId: 4, tabName: "咨询管理" },
-               { tabId: 5, tabName: "评论管理" }
+               { tabId: 1, tabName: "商品管理",path:'/shop'},
+               { tabId: 2, tabName: "分类管理",path:'/shop/classify'},
+               { tabId: 3, tabName: "品牌管理",path:'/shop/brand'},
+               { tabId: 4, tabName: "咨询管理",path:'/shop/advisory'},
+               { tabId: 5, tabName: "评论管理",path:'/shop/discuss'}
              ],
              navList3:[
                { tabId: 1, tabName: "订单管理" },
@@ -248,40 +249,38 @@ export default {
     },
     methods: {
       selectMenuItem(index){
-          alert("点击成功，实现跳转")
+          
       },
-      selecNavTabAction(index) {
-        this.selectIndex = index;
-      }
+      
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.leftNav{
-       width: 190px;
-       height: 100%;
-       text-align: center;
-       background: #efefef;
-       left: 10%;
-       padding-top: 20px;
-       box-sizing: border-box;
-       position: absolute;
-       top: 54px;
-       li {
-             width: 100%;
-             min-height: 48px;
-             line-height: 48px; 
-             border-bottom: 1px solid #dddddd;
-             cursor: pointer;
-        }
-  }
-.leftNav li:first-child{
-   border-top: 1px solid #dddddd;
-}
-.leftNav li:hover{
-  background: #e2e2e2;
-}
+// .leftNav{
+//        width: 190px;
+//        height: 100%;
+//        text-align: center;
+//        background: #efefef;
+//        left: 10%;
+//        padding-top: 20px;
+//        box-sizing: border-box;
+//        position: absolute;
+//        top: 54px;
+//        li {
+//              width: 100%;
+//              min-height: 48px;
+//              line-height: 48px; 
+//              border-bottom: 1px solid #dddddd;
+//              cursor: pointer;
+//         }
+//   }
+// .leftNav li:first-child{
+//    border-top: 1px solid #dddddd;
+// }
+// .leftNav li:hover{
+//   background: #e2e2e2;
+// }
 .tabs{
   position: relative;
   top: 0;
@@ -295,6 +294,9 @@ export default {
      padding: 0 18px;
      height: 54px;
      text-align: center;
+      .actived{
+        border-bottom: 1px solid red;
+      }
     span{
        font-size: 14px;
        color:#c2c5c9;
@@ -339,8 +341,10 @@ export default {
     li {
         border-bottom: 1px solid #efefef;
         font-size: 14px;
-        width: 100%;
+        width: 130px;
+        cursor: pointer;
         height: 36px;
+        letter-spacing: 1.35px;
         line-height: 36px;
     }
 }

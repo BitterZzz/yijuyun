@@ -3,15 +3,32 @@
       margin: 0 auto;
       background: blueviolet;
    }
-   .page{
+   .page,#classify,#brand,#advisory,#discuss,#add{
       position: absolute;
-      margin-top: 54px;
       min-width: 1420px;
       height: 100%;
-      padding-top: 20px;
-      padding-left: 330px;
+      padding-top: 74px;
+      padding-left: 130px;
       box-sizing: border-box;
+
+      border-top: none;
+      border-bottom: none;
     }
+    .top-nav{
+      width: 1180px;
+      height: 44px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+}
+      .top-nav li{
+         min-width: 80px;
+         background: linear-gradient(#f9f9f9,#eeefef);
+         border-right: 1px solid #ddd;
+         text-align: center;
+         line-height: 44px; 
+      }
     /* .lie{
       width: 130px;
       height: 205px;

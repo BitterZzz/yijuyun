@@ -32,12 +32,26 @@ const routes =[
   yjyshopRoute,
   loginRoute,
   {
-    path:"**",
-    redirect:'/home'
+    path:"/shop/classify",
+    component:()=>import('../pages/shop/root1')
   },
   {
-    path:'/',
-    redirect:'/home'
+    path:"/shop/brand",
+    component:()=>import('../pages/shop/root2')
+  },
+  {
+    path:"/shop/advisory",
+    component:()=>import('../pages/shop/root3')
+  },
+  {
+    path:"/shop/discuss",
+    component:()=>import('../pages/shop/root4')
+    
+  },
+  {
+    path:"/shop/add",
+    component:()=>import('../pages/shop/add')
+    
   }
 
 
